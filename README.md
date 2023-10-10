@@ -16,7 +16,7 @@
 
 <img src="./tragic-of-war/tragicofwar.png" width="400px">
 
-
+---
 
 ### Alien detective algorithm
 [p5Link](https://editor.p5js.org/rmdnps10/sketches/WDcQzZWnd)
@@ -26,6 +26,8 @@
 - using javascript machine learning library YOLO
 - You have to be recognized as a person by YOLO and exceed the target score within a certain time.
 
+---
+
 ### Music Reactor
 [p5Link](https://editor.p5js.org/rmdnps10/sketches/-oGeTIphM)
 
@@ -34,7 +36,7 @@
 - When you click, the geometric shape changes according to the waveform of the music being played.
 - The waveform information obtained through the FFT library was mapped to a shape.
 
-
+---
 
 ### Running ladybug
 
