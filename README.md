@@ -1,25 +1,32 @@
-# Media Art archive using p5.js
-Sogang Univ A&T. Inyoung Chung
+# Media Art archive 
+Sogang University A&T 20 Inyoung Chung
 
-## p5-Links
+## Introduction
 
-### Using Class
-Tragic of War 
-https://editor.p5js.org/rmdnps10/sketches/mcG2dzSXW
-
-### Using Random 
-Running ladybug
-https://editor.p5js.org/rmdnps10/sketches/lhDJCPYIT
-
-### L-System
-Recursive Birch Tree Generator 
+### Recursive Birch Tree Generator 
 https://editor.p5js.org/rmdnps10/sketches/xBod-ihS9
+<img src="./birch-tree/birchtree.png">
 
-### Machine Learning 
-alien detective algorithm 
-https://editor.p5js.org/rmdnps10/sketches/WDcQzZWnd
+### Tragic of War
+[p5Link](https://editor.p5js.org/rmdnps10/sketches/mcG2dzSXW)
 
-### Using FFT 
-Music Reactor
-https://editor.p5js.org/rmdnps10/sketches/-oGeTIphM 
+<img src="./tragic-of-war/tragicofwar.png">
+
+### Alien detective algorithm
+[p5Link](https://editor.p5js.org/rmdnps10/sketches/WDcQzZWnd)
+<img src="./alien-detective-algorithm/aliendetectivealgorithm.png">
+
+### Music Reactor
+[p5Link](https://editor.p5js.org/rmdnps10/sketches/-oGeTIphM)
+<img src="./music-reactor/musicreactor.png">
+
+
+### Running ladybug
+[p5Link](https://editor.p5js.org/rmdnps10/sketches/lhDJCPYIT)
+<img src="./ladybug/ladybug.png">
+
+
+
+
+
 
