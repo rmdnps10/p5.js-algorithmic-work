@@ -1,17 +1,34 @@
-# Media Art archive 
+# Processing Archive  
+<img src="https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5dotjs&logoColor=white"> 
+
 <p>Sogang University A&T 20 Inyoung Chung</p>
 
+### Planting Tree in the City
+
+[p5Link](https://editor.p5js.org/rmdnps10/sketches/2YKfRS5fb)
+
+<img src="./Planting Tree//assets/planting_tree.png" width="400px">
+
+Collage work
+- If you click the screen, tree generates at the coordinate in the middle of the Seoul.
+- The message I want to convey is hidden in the work.
+
+
 ---
-### Recursive Birch Tree Generator 
+
+### Recursive Birch Tree Generator
+
 [p5Link](https://editor.p5js.org/rmdnps10/sketches/xBod-ihS9)
 
 <img src="./birch-tree/birchtree.png" width="400px">
 
-- When you run the code, a birch tree of a different shape is created each time recursively. 
+- When you run the code, a birch tree of a different shape is created each time recursively.
 - Detailed Descriptipn (texture, leaves) is performed by using vector.
 
 ---
+
 ### Tragic of War
+
 [p5Link](https://editor.p5js.org/rmdnps10/sketches/mcG2dzSXW)
 
 <img src="./tragic-of-war/tragicofwar.png" width="400px">
@@ -19,6 +36,7 @@
 ---
 
 ### Alien detective algorithm
+
 [p5Link](https://editor.p5js.org/rmdnps10/sketches/WDcQzZWnd)
 
 <img src="./alien-detective-algorithm/aliendetectivealgorithm.png" width="400px">
@@ -29,6 +47,7 @@
 ---
 
 ### Music Reactor
+
 [p5Link](https://editor.p5js.org/rmdnps10/sketches/-oGeTIphM)
 
 <img src="./music-reactor/musicreactor.png" width="400px">
@@ -40,12 +59,9 @@
 
 ### Running ladybug
 
+
 [p5Link](https://editor.p5js.org/rmdnps10/sketches/lhDJCPYIT)
 
+Isn't it adorable?
+
 <img src="./ladybug/ladybug.png" width="400px">
-
-
-
-
-
-
