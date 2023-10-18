@@ -7,7 +7,7 @@ let clickThreshold = 10;
 let clickedCount = 0;
 let treeTraces = [];
 
-// Preoload prequisitye images and font
+// Preoload prequisite images and font
 function preload() {
   backgroundSeoul = loadImage("./assets/seoul.jpg");
   tree = loadImage("./assets/tree.png");
