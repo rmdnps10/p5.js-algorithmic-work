@@ -1,7 +1,25 @@
-# Processing Archive  
-<img src="https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5dotjs&logoColor=white"> 
+# Processing Archive
+
+
 
 <p>Sogang University A&T 20 Inyoung Chung</p>
+
+<img src="https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5dotjs&logoColor=white">
+
+---
+
+### Electronic Magetic Field
+
+[p5link](https://editor.p5js.org/rmdnps10/sketches/9NCmgClhr)
+
+<img src="./electronic-magnetic-field/electronic.png">
+
+Generative Design System
+
+- Electric fields were implemented in 3D by creating polygons in 3D using Bezier curves.
+- You can customize the color and rotation speed of the electric field by using slider.
+
+---
 
 ### Planting Tree in the City
 
@@ -10,9 +28,9 @@
 <img src="./Planting Tree//assets/planting_tree.png" width="400px">
 
 Collage work
+
 - If you click the screen, tree generates at the coordinate in the middle of the Seoul.
 - The message I want to convey is hidden in the work.
-
 
 ---
 
@@ -59,9 +77,8 @@ Collage work
 
 ### Running ladybug
 
-
 [p5Link](https://editor.p5js.org/rmdnps10/sketches/lhDJCPYIT)
 
-Isn't it adorable?
+Adorable ladybug
 
 <img src="./ladybug/ladybug.png" width="400px">
