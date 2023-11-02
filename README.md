@@ -16,8 +16,9 @@
 
 Generative Design System
 
-- Electric fields were implemented in 3D by creating polygons in 3D using Bezier curves.
-- You can customize the color and rotation speed of the electric field by using slider.
+- Revolving electronic fields were implemented in 3D environment (WEBGL) by creating polygons using Bezier curves.
+- You can customize the color and rotation speed of the electric magnetic field by using slider.
+
 
 ---
 
