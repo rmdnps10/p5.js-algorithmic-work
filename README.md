@@ -61,7 +61,7 @@ Collage work
 <img src="./alien-detective-algorithm/aliendetectivealgorithm.png" width="400px">
 
 - using javascript machine learning library YOLO
-- You have to be recognized as a person by YOLO and exceed the target score within a certain time.
+- You have to be recognized as a person by YOLO and exceed the target score within a certain time. 
 
 ---
 
