@@ -6,6 +6,22 @@
 
 <img src="https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5dotjs&logoColor=white">
 
+--- 
+
+### Red sun 
+
+[p5link](https://editor.p5js.org/rmdnps10/sketches/GO9eLTtDE)
+
+
+<img src="./red-sun/redsun.png">
+
+
+Audio data mapping & visualization
+
+- Visualization of the frequency and spectrum of audio data.
+- Audio data is from Show Me the Money hip-hop song,  ‘red sun’ by 행주.
+
+
 ---
 
 ### Electronic Magetic Field
