@@ -13,7 +13,7 @@
 [p5link](https://editor.p5js.org/rmdnps10/sketches/GO9eLTtDE)
 
 
-<img src="./red-sun/redsun.png">
+<img src="./Red-sun/redsun.png">
 
 
 Audio data mapping & visualization
