@@ -1,5 +1,5 @@
-// 20201148
-// Advertisement of Apple.
+// 20201148 정인영
+// Advertising about Apple branding 
 
 var imgs = [];
 var imgNames = [
@@ -12,7 +12,7 @@ var imgNames = [
 ];
 
 var imgIndex = -1;
-var loadPercentage = 0.045; // 0 to 1.0
+var loadPercentage = 0.045;
 var closeEnoughTarget = 50;
 var allParticles = [];
 var mouseSizeSlider;
