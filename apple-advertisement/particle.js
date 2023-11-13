@@ -4,17 +4,13 @@ function Particle(x, y) {
   this.acc = new p5.Vector(0, 0);
   this.target = new p5.Vector(0, 0);
   this.isKilled = false;
-
-  this.maxSpeed = random(0.25, 2); // How fast it can move per frame.
-  this.maxForce = random(8, 15); // Its speed limit.
-
+  this.maxSpeed = random(0.25, 2); 
+  this.maxForce = random(8, 15); 
   this.currentColor = color(0);
   this.endColor = color(0);
   this.colorBlendRate = random(0.01, 0.05);
   this.currentSize = 0;
-  // Saving as class var so it doesn't need to calculate twice.
   this.distToTarget = 0;
-
   this.move = function () {
     this.distToTarget = dist(
       this.pos.x,
@@ -23,8 +19,6 @@ function Particle(x, y) {
       this.target.y
     );
 
-    // If it's close enough to its target, the slower it'll get
-    // so that it can settle.
     if (this.distToTarget < closeEnoughTarget) {
       var proximityMult = this.distToTarget / closeEnoughTarget;
       this.vel.mult(0.9);
@@ -33,7 +27,6 @@ function Particle(x, y) {
       this.vel.mult(0.95);
     }
 
-    // Steer towards its target.
     if (this.distToTarget > 1) {
       var steer = new p5.Vector(this.target.x, this.target.y);
       steer.sub(this.pos);
@@ -44,14 +37,11 @@ function Particle(x, y) {
 
     var mouseDist = dist(this.pos.x, this.pos.y, mouseX, mouseY);
 
-    // Interact with mouse.
     if (mouseDist < mouseSizeSlider.slider.value()) {
       if (mouseIsPressed) {
-        // Push towards mouse.
         var push = new p5.Vector(mouseX, mouseY);
         push.sub(new p5.Vector(this.pos.x, this.pos.y));
       } else {
-        // Push away from mouse.
         var push = new p5.Vector(this.pos.x, this.pos.y);
         push.sub(new p5.Vector(mouseX, mouseY));
       }
@@ -59,8 +49,6 @@ function Particle(x, y) {
       push.mult((mouseSizeSlider.slider.value() - mouseDist) * 0.05);
       this.acc.add(push);
     }
-
-    // Move it.
     this.vel.add(this.acc);
     this.vel.limit(this.maxForce * speedSlider.slider.value());
     this.pos.add(this.vel);
@@ -74,9 +62,7 @@ function Particle(x, y) {
       this.colorBlendRate
     );
     stroke(this.currentColor);
-
     if (!this.isKilled) {
-      // Size is bigger the closer it is to its target.
       var targetSize = map(
         min(this.distToTarget, closeEnoughTarget),
         closeEnoughTarget,

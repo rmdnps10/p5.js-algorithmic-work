@@ -85,9 +85,12 @@ function draw() {
       }
     }
   }
+  particleSizeSlider.display();
+  resSlider.display();
+  speedSlider.display();
+  mouseSizeSlider.display();
   fill("#dee2e6");
   textAlign(CENTER);
-  
   noStroke();
   textSize(30);
   textFont(sfFontMedium);

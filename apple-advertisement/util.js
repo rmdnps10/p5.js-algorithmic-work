@@ -38,18 +38,13 @@ function generateRandomPos(x, y, mag) {
     
     var pixelIndex = 0;
     
-    // Go through each pixel of the image.
     for (var y = 0; y < imgs[imgIndex].height; y++) {
       for (var x = 0; x < imgs[imgIndex].width; x++) {
-        // Get the pixel's color.
         var pixelR = imgs[imgIndex].pixels[pixelIndex];
         var pixelG = imgs[imgIndex].pixels[pixelIndex+1];
         var pixelB = imgs[imgIndex].pixels[pixelIndex+2];
         var pixelA = imgs[imgIndex].pixels[pixelIndex+3];
-        
-        pixelIndex += 4;
-        
-        // Give it small odds that we'll assign a particle to this pixel.
+        pixelIndex += 4;        
         if (random(1.0) > loadPercentage*resSlider.slider.value()) {
           continue;
         }
@@ -57,11 +52,9 @@ function generateRandomPos(x, y, mag) {
         var pixelColor = color(pixelR, pixelG, pixelB);
         
         if (particleIndexes.length > 0) {
-          // Re-use existing particle.
           var index = particleIndexes.splice(random(particleIndexes.length-1), 1);
           var newParticle = allParticles[index];
         } else {
-          // Create a new particle.
           var newParticle = new Particle(width/2, height/2);
           allParticles.push(newParticle);
         }
@@ -72,7 +65,6 @@ function generateRandomPos(x, y, mag) {
       }
     }
     
-    // Kill off any left over particles that aren't assigned to anything.
     if (particleIndexes.length > 0) {
       for (var i = 0; i < particleIndexes.length; i++) {
         allParticles[particleIndexes[i]].kill();
