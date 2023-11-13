@@ -90,7 +90,6 @@ function Particle(x, y) {
 
     this.currentSize = lerp(this.currentSize, targetSize, 0.1);
     strokeWeight(this.currentSize);
-
     point(this.pos.x, this.pos.y);
   };
 

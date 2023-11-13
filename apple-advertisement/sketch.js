@@ -2,7 +2,14 @@
 // Advertisement of Apple.
 
 var imgs = [];
-var imgNames = ["logo/white.svg", "logo/rainbow.png"];
+var imgNames = [
+  "assets/logo/1977.png",
+  "assets/logo/2000.png",
+  "assets/logo/2007.png",
+  "assets/logo/sparkle.png",
+  "assets/logo/white.svg",
+  "assets/logo/1998.jpg",
+];
 
 var imgIndex = -1;
 var loadPercentage = 0.045; // 0 to 1.0
@@ -20,11 +27,12 @@ function preload() {
     var newImg = loadImage(imgNames[i]);
     imgs.push(newImg);
   }
+  sfFontRegular = loadFont("assets/font/SFPRODISPLAYREGULAR.OTF");
+  sfFontMedium = loadFont("assets/font/SFPRODISPLAYMEDIUM.OTF");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-
   // Create on-screen controls.
   mouseSizeSlider = new SliderLayout("Mouse size", 50, 200, 100, 1, 100, 100);
 
@@ -61,8 +69,6 @@ function setup() {
   nextImageButton = createButton("Next image");
   nextImageButton.position(100, resSlider.slider.position().y + 40);
   nextImageButton.mousePressed(nextImage);
-
-  // Change to first image.
   nextImage();
 }
 
@@ -79,6 +85,16 @@ function draw() {
       }
     }
   }
+  fill("#dee2e6");
+  textAlign(CENTER);
+  
+  noStroke();
+  textSize(30);
+  textFont(sfFontMedium);
+  text("Apple", windowWidth / 2, (windowHeight / 8) * 7);
+  textSize(20);
+  textFont(sfFontRegular);
+  text("History of Innovation.", windowWidth / 2, (windowHeight / 12) * 11);
 }
 
 function keyPressed() {

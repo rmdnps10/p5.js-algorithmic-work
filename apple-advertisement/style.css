@@ -8,8 +8,4 @@ body {
 canvas {
   display: block;
 }
-caption {
-  position: absolute;
-  color: white;
-  font-size: 100px;
-}
+
