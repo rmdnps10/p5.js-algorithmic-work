@@ -1,10 +1,3 @@
-/**
-Randomly uses an angle and magnitude from supplied position to get a new position.
-@param {number} x
-@param {number} y
-@param {number} mag
-@return {p5.Vector}
-*/
 function generateRandomPos(x, y, mag) {
     var pos = new p5.Vector(x, y);
     
@@ -19,18 +12,12 @@ function generateRandomPos(x, y, mag) {
   }
   
   
-  /**
-  Dynamically adds/removes particles to make up the next image.
-  */
   function nextImage() {
-    // Switch index to next image.
     imgIndex++;
     if (imgIndex > imgs.length-1) {
       imgIndex = 0;
     }
-    imgs[imgIndex].loadPixels();
-    
-    // Create an array of indexes from particle array.
+    imgs[imgIndex].loadPixels();    
     var particleIndexes = [];
     for (var i = 0; i < allParticles.length; i++) {
       particleIndexes.push(i);
@@ -48,9 +35,7 @@ function generateRandomPos(x, y, mag) {
         if (random(1.0) > loadPercentage*resSlider.slider.value()) {
           continue;
         }
-        
         var pixelColor = color(pixelR, pixelG, pixelB);
-        
         if (particleIndexes.length > 0) {
           var index = particleIndexes.splice(random(particleIndexes.length-1), 1);
           var newParticle = allParticles[index];

@@ -15,7 +15,7 @@ function SliderLayout(
     noStroke();
     fill(255);
     textSize(13);
-    textAlign(LEFT);
+    textAlign(LEFT);  
     text(this.label, sliderPos.x, sliderPos.y - 10);
     fill(0);
     text(
