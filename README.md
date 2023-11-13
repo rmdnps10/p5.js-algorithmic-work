@@ -12,9 +12,12 @@
 
 [published URL](https://p5-js-algorithmic-work.vercel.app/)
 
-<img src="">
+<img src="./apple-advertisement/apple-advertisement.png">
 
 User-Interactive Particle System
+
+- Collection of all Apple logos
+- Particle system that responds to the mouse form the logo
 
 ### Red sun 
 
