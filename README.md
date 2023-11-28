@@ -14,10 +14,14 @@
 
 <img src="./apple-advertisement/apple-advertisement.png">
 
-User-Interactive Particle System
+User-Interactive Particle System (building Gesture Interface by using machine learning model, `ml5`)
 
 - Collection of all Apple logos
 - Particle system that responds to the mouse form the logo
+
+++ 2023/11/28 update
+- A webcam containing your face is located in the right corner.
+- When you shake your shoulder, ML model detects the change and the image particles change.
 
 ### Red sun 
 

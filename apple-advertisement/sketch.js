@@ -162,9 +162,11 @@ function draw() {
   textSize(20);
   textFont(sfFontRegular);
   text("History of Innovation.", windowWidth / 2, (windowHeight / 12) * 11);
+  console.log(poses[0]?.pose?.keypoints[5].position);
+  console.log(windowHeight);
   if (
     poses.length > 0 &&
-    poses[0].pose.keypoints[0].position.y < windowHeight / 2
+    poses[0].pose.keypoints[5].position.y < windowHeight / 2 
   ) {
     nextImage();
   }
