@@ -1,41 +1,38 @@
 # P5 js Processing Archive
 
-
-
 <p>Sogang University A&T 20 Inyoung Chung</p>
 
 <img src="https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5dotjs&logoColor=white">
 
---- 
+---
 
 ### Apple Brand PR Website
 
 [published URL](https://p5-js-algorithmic-work.vercel.app/)
 
-<img src="./apple-advertisement/apple-advertisement.png">
 
+<img src="./apple-advertisement//DEMO_SHORTS.gif">
+<img src="./apple-advertisement/apple-advertisement.png">
 User-Interactive Particle System (building Gesture Interface by using machine learning model, `ml5`)
 
 - Collection of all Apple logos
 - Particle system that responds to the mouse form the logo
 
 ++ 2023/11/28 update
+
 - A webcam containing your face is located in the right corner.
 - When you shake your shoulder, ML model detects the change and the image particles change.
 
-### Red sun 
+### Red sun
 
 [p5link](https://editor.p5js.org/rmdnps10/sketches/GO9eLTtDE)
 
-
 <img src="./Red-Sun/redsun.png">
-
 
 Audio data mapping & visualization
 
 - Visualization of the frequency and spectrum of audio data.
-- Audio data is from Show Me the Money hip-hop song,  ‘red sun’ by 행주.
-
+- Audio data is from Show Me the Money hip-hop song, ‘red sun’ by 행주.
 
 ---
 
@@ -49,7 +46,6 @@ Generative Design System
 
 - Revolving electronic fields were implemented in 3D environment (WEBGL) by creating polygons using Bezier curves.
 - You can customize the color and rotation speed of the electric magnetic field by using slider.
-
 
 ---
 
@@ -92,7 +88,7 @@ Collage work
 <img src="./alien-detective-algorithm/aliendetectivealgorithm.png" width="400px">
 
 - using javascript machine learning library YOLO
-- You have to be recognized as a person by YOLO and exceed the target score within a certain time. 
+- You have to be recognized as a person by YOLO and exceed the target score within a certain time.
 
 ---
 
