@@ -41,13 +41,7 @@ function modelReady() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   // Create on-screen controls.
-  video = createCapture(VIDEO);
-  video.size(width, height);
-  poseNet = ml5.poseNet(video, modelReady);
-  poseNet.on("pose", function (results) {
-    poses = results;
-  });
-  video.hide();
+  
   mouseSizeSlider = new SliderLayout("Mouse size", 50, 200, 100, 1, 100, 100);
 
   particleSizeSlider = new SliderLayout(
@@ -86,35 +80,9 @@ function setup() {
   nextImage();
 }
 
-function modelLoaded() {
-  console.log("PoseNet model loaded");
-}
-function gotPoses(results) {
-  poses = results;
-  console.log(poses);
-  if (poses.length > 0) {
-    // Check if the hand is raised (you may need to adjust the keypoints index)
-    handIsUp = poses[0].pose.keypoints[9].position.y < windowHeight / 2;
-  }
-}
 
-function drawKeypoints() {
-  // Loop through all the poses detected
-  for (let i = 0; i < poses.length; i++) {
-    // For each pose detected, loop through all the keypoints
-    let pose = poses[i].pose;
-    for (let j = 0; j < pose.keypoints.length; j++) {
-      // A keypoint is an object describing a body part (like rightArm or leftShoulder)
-      let keypoint = pose.keypoints[j];
-      // Only draw an ellipse is the pose probability is bigger than 0.2
-      if (keypoint.score > 0.2) {
-        fill(255, 0, 0);
-        noStroke();
-        ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
-      }
-    }
-  }
-}
+
+
 
 // A function to draw the skeletons
 function drawSkeleton() {
@@ -171,7 +139,7 @@ function draw() {
     nextImage();
   }
 
-  image(video, (width / 5) * 4, 0, width / 5, height / 3);
+  
 }
 
 function keyPressed() {

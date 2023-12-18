@@ -44,31 +44,19 @@ function preload() {
   audio = loadSound("assets/mp3/2005.mp3");
 }
 
-function mousePressed() {
-  if (isPressed) {
-    audio.pause();
-    isPressed = false;
-  } else {
-    isPressed = true;
-    audio.loop();
-  }
-}
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // For a cool effect try uncommenting this line
-  // And comment out the background() line in draw
-  // stroke(255, 50);
   clear();
+  noCursor();
   fft = new p5.FFT();
   nextImage();
 }
 
 function draw() {
   background(0);
+  console.log(window.sharedData.handData);
   let spectrum = fft.analyze();
   amp = fft.getEnergy(20, 20000);
-  console.log(amp);
   // for (let i = 0; i < spectrum.length * 2; i += 80) {
   //   let ratio = i / spectrum.length;
   //   let hue = map(i, 0, spectrum.length, 0, 255);
@@ -79,8 +67,6 @@ function draw() {
   //   x = map(i, 0, spectrum.length, width / 2, 0);
   //   ellipse(x, height / 2, diameter, diameter);
   // }
-
-  var randomValue = Math.random();
 
   if (isPressed) {
     blendMode(ADD);
@@ -100,8 +86,8 @@ function draw() {
       endShape();
     }
   }
-
   blendMode(BLEND);
+
   for (var i = allParticles.length - 1; i > -1; i--) {
     allParticles[i].move();
     allParticles[i].draw();
@@ -112,38 +98,90 @@ function draw() {
       }
     }
   }
-  if (Math.random() < 0.1) {
+  let xPos = window.sharedData.handData?.landmarks[0][9].x;
+  console.log(xPos);
+  let yPos = window.sharedData.handData?.landmarks[0][9].y;
+  console.log(yPos);
+  if (
+    window.sharedData.handData?.gestures[0][0].categoryName == "Closed_Fist"
+  ) {
+    console.log("실행");
     imageMode(CENTER);
-    image(imgs[1], width / 2, height / 2);
+    ellipse(10, 20, 50, 100);
+    image(imgs[imgIndex], width / 2, height / 2);
   }
+  console.log(window.screen.width);
+  console.log(window.screen.height);
 
-  fill("#dee2e6");
-  textAlign(CENTER);
+  let mappedX = map(xPos, 1, 0, 0, window.screen.width);
+  let mappedY = map(yPos, 0, 1, 0, window.screen.height);
+  stroke(200, 0, 0);
+  ellipse(mappedX, mappedY, 3, 3);
   noStroke();
-  textSize(40);
-  textFont(sfFontRegular);
-  text("2001년 12월 15일", 200, (windowHeight / 8) * 1);
 
-  textSize(20);
-  textFont(sfFontRegular);
-  text("세상에 태어난 날", windowWidth / 2, (windowHeight / 12) * 11 - 30);
-  textSize(12);
-  text(
-    "이정도로 많은 축복을 받은 적이 있었을까",
-    windowWidth / 2,
-    (windowHeight / 12) * 11
-  );
+  // if (Math.random() < 0.5) {
+  //   imageMode(CENTER);
+  //   image(imgs[3], width / 2, height / 2);
+  // }
+
+  // if (imgIndex == 0) {
+  //   fill("#dee2e6");
+  //   textAlign(CENTER);
+  //   noStroke();
+  //   textSize(40);
+  //   textFont(sfFontRegular);
+  //   text("2001.12.15", 200, (windowHeight / 8) * 1);
+
+  //   textSize(2);
+  //   textFont(sfFontRegular);
+  //   text("Birth", windowWidth / 2, (windowHeight / 12) * 11 - 30);
+  //   textSize(15);
+  //   text(
+  //     "출생",
+  //     windowWidth / 3,
+  //     (windowHeight / 12) * 6
+  //   );
+  // } else if (imgIndex == 1) {
+  //   fill("#dee2e6");
+  //   textAlign(CENTER);
+  //   noStroke();
+  //   textSize(40);
+  //   textFont(sfFontRegular);
+  //   text("2002년 3월 24일", 200, (windowHeight / 8) * 1);
+
+  //   textSize(20);
+  //   textFont(sfFontRegular);
+  //   text("탄생 出 生", windowWidth / 2, (windowHeight / 12) * 11 - 30);
+  //   textSize(12);
+  //   text(
+  //     "수많은 사람들의 축복 속에서 태어났다.",
+  //     windowWidth / 2,
+  //     (windowHeight / 12) * 11
+  //   );
+  // }
 }
 
 function keyPressed() {
-  blendMode(BLEND);
-  var currentTime = millis();
-  // 처음 2초 동안은 blendMode(ADD)로 설정
-  if (currentTime < 2000) {
-    blendMode(ADD);
-  } else {
-    // 2초가 지나면 기본 블렌딩 모드로 설정
+  // Check if the key pressed is Enter (keyCode 13)
+  if (keyIsPressed && keyCode === ENTER) {
     blendMode(BLEND);
+    var currentTime = millis();
+    // 처음 2초 동안은 blendMode(ADD)로 설정
+    if (currentTime < 2000) {
+      blendMode(ADD);
+    } else {
+      // 2초가 지나면 기본 블렌딩 모드로 설정
+      blendMode(BLEND);
+    }
+    nextImage();
   }
-  nextImage();
+  if (keyIsPressed && keyCode === SPACE) {
+    if (isPressed) {
+      audio.pause();
+      isPressed = false;
+    } else {
+      isPressed = true;
+      audio.loop();
+    }
+  }
 }

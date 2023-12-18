@@ -36,7 +36,11 @@ function Particle(x, y) {
       this.acc.add(steer);
     }
 
-    var mouseDist = dist(this.pos.x, this.pos.y, mouseX + 30, mouseY);
+    let xPos = window.sharedData.handData?.landmarks[0][9].x;
+    let yPos = window.sharedData.handData?.landmarks[0][9].y;
+    let mappedX = map(xPos, 1, 0, window.screen.width /5 * 1, window.screen.width /5 * 4);
+    let mappedY = map(yPos, 0, 1,  window.screen.height / 5 * 1, window.screen.height / 5 * 4);
+    var mouseDist = dist(this.pos.x, this.pos.y, mappedX, mappedY);
     // 여기 조절
     if (mouseDist < 100) {
       if (mouseIsPressed) {
