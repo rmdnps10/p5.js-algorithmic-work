@@ -76,10 +76,10 @@ function enableCam(event) {
 
   if (webcamRunning === true) {
     webcamRunning = false;
-    enableWebcamButton.innerText = "ENABLE PREDICTIONS";
+    enableWebcamButton.innerText = "Continue";
   } else {
     webcamRunning = true;
-    enableWebcamButton.innerText = "DISABLE PREDICTIONS";
+    enableWebcamButton.innerText = "Pause ";
   }
 
   // getUsermedia parameters.

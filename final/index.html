@@ -18,16 +18,99 @@
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato&family=Rubik+Doodle+Shadow&display=swap");
+    </style>
     <meta charset="utf-8" />
   </head>
   <body>
+    <div class="intro">
+      <nav>
+        <a
+          href="https://github.com/rmdnps10/p5.js-algorithmic-work"
+          target="_blank"
+        >
+          <img src="./assets/logo/github.png" alt="github-icon" />
+        </a>
+      </nav>
+      <div class="title">Touch the memory</div>
+    </div>
+    <div class="letter">
+      <div
+        class="content1"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
+        안녕 엄마,아빠.
+      </div>
+      <div
+        class="content1"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
+        연말에 부모님을 위해 작은 프로젝트를 준비했어요.
+      </div>
+      <div
+        class="content1"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
+        별 건 아니고... 작은 미니게임인데
+      </div>
+      <div
+        class="content1"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
+        아래에 우리 가족의 옛날 사진이 나올텐데,
+      </div>
+      <div
+        class="content1"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
+        많은 키워드들 중에서 해당 사진과 관련된 키워드를 골라주시면 돼요.
+      </div>
+      <div
+        class="content1"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
+        커서를 움직이실 때는 손으로 움직이시면 되고
+      </div>
+      <div
+        class="content1"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
+        키워드를 고르실 때는 커서를 키워드에 조정하고 주먹을 쥐어주세요.
+      </div>
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
+        그럼.. 화이팅(?!) 입니다.
+      </div>
+    </div>
+    <div class="button-wrapper">
+      <button id="webcamButton">
+        <span class="mdc-button__ripple"></span>
+        <span class="mdc-button__label">Game Start </span>
+      </button>
+    </div>
     <section id="demos" class="invisible">
       <div id="liveView" class="videoView">
-        <button id="webcamButton" class="mdc-button mdc-button--raised">
-          <span class="mdc-button__ripple"></span>
-          <span class="mdc-button__label">ENABLE WEBCAM</span>
-        </button>
-        <div style="position: relative">
+        <div style="position: relative; display: none">
           <video id="webcam" autoplay playsinline></video>
           <canvas
             class="output_canvas"
@@ -45,5 +128,9 @@
     <script defer src="particle.js"></script>
     <script defer src="util.js"></script>
     <script defer src="sketch.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

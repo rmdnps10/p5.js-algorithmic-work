@@ -1,3 +1,58 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Title";
+  src: url("./assets/font//RubikDoodleShadow-Regular.ttf");
+  font-weight: 400;
+}
+nav {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  text-align: right;
+}
+nav img {
+  width: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+}
+.intro {
+  position: relative;
+  height: 800px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.letter {
+  height: 800px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  align-items: center;
+  gap: 80px;
+}
+.title {
+  font-size: 80px;
+  font-family: "Title";
+  color: white;
+}
+.content {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 100);
+}
 html,
 body {
   margin: 0;
@@ -11,7 +66,6 @@ canvas {
 
 body {
   font-family: roboto;
-  margin: 2em;
   color: #3d3d3d;
   --mdc-theme-primary: #007f8b;
   --mdc-theme-on-primary: #f1f3f4;
@@ -82,6 +136,7 @@ section {
 }
 
 .canvas {
+  display: none;
   z-index: 1;
   position: absolute;
   pointer-events: none;
@@ -105,4 +160,21 @@ section {
   display: none;
   width: 100%;
   font-size: calc(8px + 1.2vw);
+}
+
+.button-wrapper {
+  background-color: black;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 200px;
+}
+#webcamButton {
+  color: white;
+  font-family: "Title";
+  text-align: center;
+  font-weight: 100;
+  cursor: pointer;
+  background-color: black;
+  font-size: 40px;
+  border: none;
 }

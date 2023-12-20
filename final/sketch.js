@@ -4,7 +4,12 @@ let poseNet;
 let poses = [];
 let handIsUp = false;
 var imgs = [];
+let stars = [];
+let isPlay = false;
 let isPressed = false;
+let isIntro = false;
+var textList01 = ["Gangnam-seungmo hospospital", "2002-12-15", "Chung In Young", "Scarce in Right Leg"];
+
 var imgNames = [
   "assets/logo/2001.png",
   "assets/logo/2002.png",
@@ -28,32 +33,41 @@ var loadPercentage = 0.045;
 var closeEnoughTarget = 50;
 var num = 1000;
 var allParticles = [];
-
+let mouseImage1, mouseImage2;
 let fft;
 let isBlend;
+let wordList1 = [{name: "정인영"}, {name : "이대목동병원"}];
 function preload() {
   // Pre-load all images.
   for (var i = 0; i < imgNames.length; i++) {
     var newImg = loadImage(imgNames[i]);
     imgs.push(newImg);
   }
+  mouseImage1 = loadImage("./assets/logo/hand.png");
+  mouseImage2 = loadImage("./assets/logo/rock.png");
   sfFontRegular = loadFont(
     "https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff"
   );
   sfFontMedium = loadFont("assets/font/SFPRODISPLAYMEDIUM.OTF");
-  audio = loadSound("assets/mp3/2005.mp3");
+  audio = loadSound("assets/mp3/2003.mp3");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   clear();
   noCursor();
+  createStars();
   fft = new p5.FFT();
   nextImage();
+  
 }
 
 function draw() {
   background(0);
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].display(); // 각 별을 표시
+    stars[i].twinkle(); // 반짝거림 효과
+  }
   console.log(window.sharedData.handData);
   let spectrum = fft.analyze();
   amp = fft.getEnergy(20, 20000);
@@ -67,8 +81,10 @@ function draw() {
   //   x = map(i, 0, spectrum.length, width / 2, 0);
   //   ellipse(x, height / 2, diameter, diameter);
   // }
-
-  if (isPressed) {
+  textSize(10);
+  textFont(sfFontRegular);
+  text("LOVE", windowWidth / 2 - 40, windowHeight / 2);
+  if (isPlay) {
     blendMode(ADD);
     let yoff = 0.0;
     for (let i = 0; i <= 50; i++) {
@@ -87,14 +103,17 @@ function draw() {
     }
   }
   blendMode(BLEND);
+  if (
+    window.sharedData.handData?.gestures[0][0].categoryName !== "Closed_Fist"
+  ) {
+    for (var i = allParticles.length - 1; i > -1; i--) {
+      allParticles[i].move();
+      allParticles[i].draw();
 
-  for (var i = allParticles.length - 1; i > -1; i--) {
-    allParticles[i].move();
-    allParticles[i].draw();
-
-    if (allParticles[i].isKilled) {
-      if (allParticles[i].isOutOfBounds()) {
-        allParticles.splice(i, 1);
+      if (allParticles[i].isKilled) {
+        if (allParticles[i].isOutOfBounds()) {
+          allParticles.splice(i, 1);
+        }
       }
     }
   }
@@ -105,61 +124,49 @@ function draw() {
   if (
     window.sharedData.handData?.gestures[0][0].categoryName == "Closed_Fist"
   ) {
-    console.log("실행");
     imageMode(CENTER);
     ellipse(10, 20, 50, 100);
     image(imgs[imgIndex], width / 2, height / 2);
   }
-  console.log(window.screen.width);
-  console.log(window.screen.height);
 
-  let mappedX = map(xPos, 1, 0, 0, window.screen.width);
-  let mappedY = map(yPos, 0, 1, 0, window.screen.height);
-  stroke(200, 0, 0);
-  ellipse(mappedX, mappedY, 3, 3);
+  if (
+    window.sharedData.handData?.gestures[0][0].categoryName == "Closed_Fist"
+  ) {
+    if (isPlay) {
+      return;
+    }
+    audio.play();
+    isPlay = true;
+  } else {
+    audio.pause();
+    isPlay = false;
+  }
+
+  let mappedX = map(
+    xPos,
+    1,
+    0,
+    (window.screen.width / 5) * 2,
+    (window.screen.width / 5) * 3
+  );
+  let mappedY = map(
+    yPos,
+    0,
+    1,
+    (window.screen.height / 5) * 1,
+    (window.screen.height / 5) * 4
+  );
+  if (
+    window.sharedData.handData?.gestures[0][0].categoryName == "Closed_Fist"
+  ) {
+    image(mouseImage2, mappedX, mappedY, 30,30);
+  }
+  else{
+    image(mouseImage1, mappedX, mappedY,30,30);
+  }
   noStroke();
-
-  // if (Math.random() < 0.5) {
-  //   imageMode(CENTER);
-  //   image(imgs[3], width / 2, height / 2);
-  // }
-
-  // if (imgIndex == 0) {
-  //   fill("#dee2e6");
-  //   textAlign(CENTER);
-  //   noStroke();
-  //   textSize(40);
-  //   textFont(sfFontRegular);
-  //   text("2001.12.15", 200, (windowHeight / 8) * 1);
-
-  //   textSize(2);
-  //   textFont(sfFontRegular);
-  //   text("Birth", windowWidth / 2, (windowHeight / 12) * 11 - 30);
-  //   textSize(15);
-  //   text(
-  //     "출생",
-  //     windowWidth / 3,
-  //     (windowHeight / 12) * 6
-  //   );
-  // } else if (imgIndex == 1) {
-  //   fill("#dee2e6");
-  //   textAlign(CENTER);
-  //   noStroke();
-  //   textSize(40);
-  //   textFont(sfFontRegular);
-  //   text("2002년 3월 24일", 200, (windowHeight / 8) * 1);
-
-  //   textSize(20);
-  //   textFont(sfFontRegular);
-  //   text("탄생 出 生", windowWidth / 2, (windowHeight / 12) * 11 - 30);
-  //   textSize(12);
-  //   text(
-  //     "수많은 사람들의 축복 속에서 태어났다.",
-  //     windowWidth / 2,
-  //     (windowHeight / 12) * 11
-  //   );
-  // }
-}
+  textSize(20);
+} 
 
 function keyPressed() {
   // Check if the key pressed is Enter (keyCode 13)
@@ -175,13 +182,56 @@ function keyPressed() {
     }
     nextImage();
   }
-  if (keyIsPressed && keyCode === SPACE) {
+  if (keyIsPressed && keyCode === D) {
     if (isPressed) {
       audio.pause();
       isPressed = false;
     } else {
       isPressed = true;
       audio.loop();
+    }
+  }
+}
+
+function generateWords() {
+  for (let i = 0; i < 10; i++) {
+    let word = {
+      text: "Word" + i,
+      x: random(1000),
+      y: random(1000),
+    };
+    words.push(word);
+  }
+}
+
+
+
+function createStars() {
+  // 별들을 생성하고 배열에 추가하는 함수
+  for (let i = 0; i < 1000; i++) {
+    stars.push(new Star());
+  }
+}
+
+class Star {
+  constructor() {
+    this.x = random(width);
+    this.y = random(height);
+    this.size = random(0, 2);
+    this.alpha = random(150, 255);
+  }
+
+  display() {
+    fill(255, this.alpha);
+    noStroke();
+    ellipse(this.x, this.y, this.size, this.size);
+  }
+
+  twinkle() {
+    if (random() > 0.95) {
+      this.alpha = 255;
+    } else {
+      this.alpha = random(150, 255);
     }
   }
 }
