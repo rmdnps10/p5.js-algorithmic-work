@@ -372,13 +372,13 @@ function draw() {
         nextImage();
       }
     } else if (imgIndex == 4) {
-      for (let i = 0; i < objectListByYear[2003].length; i++) {
+      for (let i = 0; i < objectListByYear[2006].length; i++) {
         if (
           dist(
             mappedX,
             mappedY,
-            objectListByYear[2003][i].x,
-            objectListByYear[2003][i].y
+            objectListByYear[2006][i].x,
+            objectListByYear[2006][i].y
           ) < 10
         ) {
           if (i == 0) {
@@ -392,6 +392,10 @@ function draw() {
             break;
           }
         }
+      }
+    } else if (imgIndex == 5) {
+      if (dist(mappedX, mappedY, windowWidth / 2, 640) < 10) {
+        nextImage();
       }
     }
   }
