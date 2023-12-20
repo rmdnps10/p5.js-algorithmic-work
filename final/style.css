@@ -30,17 +30,20 @@ nav img {
   height: 800px;
   background-color: black;
   display: flex;
+  font-weight: 400;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .letter {
-  height: 800px;
+  height: 1200px;
   background-color: black;
   color: white;
   display: flex;
   flex-direction: column;
   font-size: 24px;
+  font-family: "Pretendard-Regular";
+  font-weight: 300;
   align-items: center;
   gap: 80px;
 }
@@ -49,8 +52,13 @@ nav img {
   font-family: "Title";
   color: white;
 }
+.guide {
+  margin-top: 40px;
+  font-size: 20px;
+}
 .content {
   font-size: 20px;
+
   color: rgba(0, 0, 0, 100);
 }
 html,
@@ -166,7 +174,6 @@ section {
   background-color: black;
   text-align: center;
   padding-top: 50px;
-  padding-bottom: 200px;
 }
 #webcamButton {
   color: white;

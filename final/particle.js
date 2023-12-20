@@ -42,15 +42,15 @@ function Particle(x, y) {
       xPos,
       1,
       0,
-      (window.screen.width / 5) * 2,
-      (window.screen.width / 5) * 3
+      (window.screen.width / 7) * 1,
+      (window.screen.width / 7) * 6
     );
     let mappedY = map(
       yPos,
       0,
       1,
-      (window.screen.height / 5) * 1,
-      (window.screen.height / 5) * 4
+      (window.screen.height / 7) * 1,
+      (window.screen.height / 7) * 6
     );
     var mouseDist = dist(this.pos.x, this.pos.y, mappedX, mappedY);
     // 여기 조절
@@ -74,7 +74,7 @@ function Particle(x, y) {
   };
 
   this.draw = function () {
-this.currentColor = lerpColor(
+    this.currentColor = lerpColor(
       this.currentColor,
       this.endColor,
       this.colorBlendRate
@@ -91,33 +91,36 @@ this.currentColor = lerpColor(
         10
       );
     } else {
-      var targetSize = 2;
+      var targetSize = 0.4;
     }
     this.currentSize = lerp(this.currentSize, targetSize, 0.1);
     strokeWeight(this.currentSize);
-
+    point(this.pos.x, this.pos.y);
     // 베지어 곡선을 사용하여 파티클 그리기
-    beginShape();
-    vertex(this.pos.x, this.pos.y);
 
     // 랜덤한 제어점 생성
-    for (var i = 0; i < 2; i++) {
-      var controlPointX = this.pos.x + random(-5, 5);
-      var controlPointY = this.pos.y + random(-5, 5);
-      var endPointX = this.pos.x + random(-5, 5);
-      var endPointY = this.pos.y + random(-5, 5);
 
-      bezierVertex(
-        controlPointX,
-        controlPointY,
-        controlPointX,
-        controlPointY,
-        endPointX,
-        endPointY
-      );
+    if (imgIndex === 2 || imgIndex == 4 ) {
+      beginShape();
+      vertex(this.pos.x, this.pos.y);
+      for (var i = 0; i < 2; i++) {
+        var controlPointX = this.pos.x + random(-5, 5);
+        var controlPointY = this.pos.y + random(-5, 5);
+        var endPointX = this.pos.x + random(-5, 5);
+        var endPointY = this.pos.y + random(-5, 5);
+
+        bezierVertex(
+          controlPointX,
+          controlPointY,
+          controlPointX,
+          controlPointY,
+          endPointX,
+          endPointY
+        );
+      }
+
+      endShape();
     }
-
-    endShape();
   };
 
   this.kill = function () {

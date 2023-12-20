@@ -8,6 +8,20 @@ function generateRandomPos(x, y, mag) {
   return pos;
 }
 
+function generateNonOverlappingCoordinates(existingCoordinates, min, max) {
+  const newCoordinate = random(min, max);
+  const offset = 20;
+
+  for (const coord of existingCoordinates) {
+    if (Math.abs(newCoordinate - coord) <= offset) {
+      // If the new coordinate is too close to an existing one, try again
+      return generateNonOverlappingCoordinates(existingCoordinates, min, max);
+    }
+  }
+
+  return newCoordinate;
+}
+
 function nextImage() {
   imgIndex++;
   if (imgIndex > imgs.length - 1) {
