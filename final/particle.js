@@ -96,10 +96,6 @@ function Particle(x, y) {
     this.currentSize = lerp(this.currentSize, targetSize, 0.1);
     strokeWeight(this.currentSize);
     point(this.pos.x, this.pos.y);
-    // 베지어 곡선을 사용하여 파티클 그리기
-
-    // 랜덤한 제어점 생성
-
     if (imgIndex === 2 || imgIndex == 4 ) {
       beginShape();
       vertex(this.pos.x, this.pos.y);

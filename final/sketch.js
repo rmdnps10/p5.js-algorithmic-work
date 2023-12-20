@@ -411,7 +411,6 @@ function mousePressed() {
   }
 }
 function keyPressed() {
-  nextImage();
   // Check if the key pressed is Enter (keyCode 13)
   if (keyIsPressed && keyCode === ENTER) {
     if (isPlay) {
