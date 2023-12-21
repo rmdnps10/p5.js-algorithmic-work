@@ -6,10 +6,29 @@
 
 ---
 
+### 📪 Slow mail (느린 우체통)
+<b>Interactive Letter for my parents</b>
+
+[published URL](https://p5-js-algorithmic-work-5mvs-git-main-asdfadsfzxc.vercel.app/)
+
+<img src="./final/final.png">
+
+<b>Creative Algorithm 23-2 Final Project</b>
+
+✨ Motivation
+
+With the concept of a letter from the past ( snail mail 📮 ), I planned a project to praise my parents for their dedication and hard work by exploring memories of the past.
+
+⚒️ Techs
+- Use MediaPipie (handPose) to track user gesture
+- User-Interactive Particle Sysetem
+- FFT Analysis 
+
+
+
 ### Apple Brand PR Website
 
 [published URL](https://p5-js-algorithmic-work.vercel.app/)
-
 
 <img src="./apple-advertisement//DEMO_SHORTS.gif">
 <img src="./apple-advertisement/apple-advertisement.png">
